@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span style="color:red;" th:text="${msg}"></span>
+    <table border="1">
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>手机号</td>
+            <td>邮箱</td>
+            <td>家庭住址</td>
+            <td>注册时间</td>
+            <td>用户状态</td>
+        </tr>
+        <tr th:each="user,a:${users}">
+            <td style="width: 60px" th:text="${a.count}"></td>
+            <td style="width: 100px" th:text="${user.getUserName()}"></td>
+            <td style="width: 60px" th:text="${user.getUserPhone()}"></td>
+            <td style="width: 100px" th:text="${user.getUserEmil()}"></td>
+            <td style="width: 300px" th:text="${user.getUserHouse()}"></td>
+            <td style="width: 100px" th:text="${user.getSignDate()}"></td>
+            <td style="width: 60px" th:text="${user.getUserStatus()}"></td>
+        </tr>
+    </table>
+</body>
+</html>

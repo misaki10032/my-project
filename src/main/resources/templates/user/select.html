@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/getlist}" target="iiframe" method="get">
+        用户名<input type="text" name="userName" placeholder="支持模糊查询">
+        手机号<input type="text" name="userPhone" placeholder="支持模糊查询">
+        住址<input type="text" name="userHouse" placeholder="支持模糊查询">
+        邮箱<input type="text" name="userEmil" placeholder="支持模糊查询">
+        <input type="submit">
+    </form>
+    <iframe th:src="@{/getlist}" name="iiframe" width="1200" height="600">
+
+    </iframe>
+</body>
+</html>

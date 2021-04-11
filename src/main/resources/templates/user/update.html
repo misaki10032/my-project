@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>update</h1>
+<a th:href="@{/loginout}">退出</a>
+<hr>
+<form method="get" th:action="@{/updateUser}"  target="iiframe">
+    <label>
+        修改的账号:
+        <input type="text" name="userPhone"  placeholder="通过手机号修改">
+    </label>
+    <label>
+        用户名:
+        <input type="text" name="userName">
+    </label>
+    <label>
+        密码:
+        <input type="text" name="pwd">
+    </label>
+    <label>
+        邮箱:
+        <input type="text" name="userEmil" placeholder="非必填">
+    </label>
+    <label>
+        家庭住址:
+        <input type="text" name="userhouse" placeholder="非必填">
+    </label>
+    <label>
+        <input type="submit" value="update">
+    </label>
+</form>
+<iframe th:src="@{/getlist}" name="iiframe" width="1200" height="600">
+
+</iframe>
+</body>
+</html>

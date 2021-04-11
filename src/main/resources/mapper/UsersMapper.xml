@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxy.shiro.mapper.UsersMapper">
+    <sql id="if_nphe">
+        <if test="userName!=null">
+            and user_name like #{userName}
+        </if>
+        <if test="userPhone!=null">
+            and user_phone like #{userPhone}
+        </if>
+        <if test="userHouse!=null">
+            and user_house like #{userHouse}
+        </if>
+        <if test="userEmil!=null">
+            and user_emil like #{userEmil}
+        </if>
+    </sql>
+    <select id="getUsers" resultType="com.cxy.shiro.pojo.Users" parameterType="map">
+        select * from users
+    <where>
+            <include refid="if_nphe"/>
+        </where>
+    </select>
+    <update id="updateUsers" parameterType="map">
+        update users
+        <set>
+            <if test="userName!=null">
+                user_name = #{userName},
+            </if>
+            <if test="pwd!=null">
+                user_pwd = #{pwd},
+            </if>
+            <if test="userHouse!=null">
+                user_house = #{userHouse},
+            </if>
+            <if test="userEmil!=null">
+                user_emil = #{userEmil},
+            </if>
+        </set>
+            where user_phone = #{userPhone}
+    </update>
+
+    <insert id="addUser" parameterType="map">
+        insert into
+            users(
+                  user_phone,
+                  user_name,
+                  <if test="userEmil!=null">
+                      user_emil,
+                  </if>
+                  <if test="userHouse!=null">
+                      user_house,
+                  </if>
+                  sign_date, user_status,
+                  user_pwd)
+            VALUES (
+                    #{userPhone},
+                    #{userName},
+                    <if test="userEmil!=null">
+                        #{userEmil},
+                    </if>
+                    <if test="userHouse!=null">
+                        #{userHouse},
+                    </if>
+                    now(),
+                    1,
+                    #{pwd}
+                   )
+    </insert>
+
+</mapper>

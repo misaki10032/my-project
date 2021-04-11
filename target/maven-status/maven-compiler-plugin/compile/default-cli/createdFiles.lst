@@ -1,0 +1,7 @@
+com\cxy\shiro\config\MybatisPlusConf.class
+com\cxy\shiro\config\MyRealm.class
+com\cxy\shiro\config\ShiroConfig.class
+com\cxy\shiro\controller\MyController.class
+com\cxy\shiro\pojo\Users.class
+com\cxy\shiro\mapper\UsersMapper.class
+com\cxy\shiro\ShiroApplication.class

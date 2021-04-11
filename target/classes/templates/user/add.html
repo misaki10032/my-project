@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>add</h1>
+<a th:href="@{/loginout}">退出</a>
+<hr>
+<form method="get" th:action="@{/addUser}" target="iiframe">
+    <label>
+        账号:
+        <input type="text" name="userPhone" placeholder="手机号">
+    </label>
+    <label>
+        用户名:
+        <input type="text" name="userName">
+    </label>
+    <label>
+        密码:
+        <input type="text" name="pwd">
+    </label>
+    <label>
+        邮箱:
+        <input type="text" name="userEmil">
+    </label>
+    <label>
+        家庭住址:
+        <input type="text" name="userhouse">
+    </label>
+    <label>
+        <input type="submit" value="add">
+    </label>
+</form>
+<iframe th:src="@{/getlist}" name="iiframe" width="1200" height="600">
+
+</iframe>
+</body>
+</html>
